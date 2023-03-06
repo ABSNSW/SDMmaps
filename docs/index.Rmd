@@ -1,7 +1,5 @@
 ---
-title: "SDM Markdown"
 output: html_document
-date: '2023-03-05'
 ---
 
 ```{r message=FALSE, warning=FALSE, include=FALSE}
