@@ -7,21 +7,23 @@ output: html_document
 library(htmltools)
 ```
 
-```{r eval=FALSE, include=FALSE}
+```{r echo=FALSE}
 tags$a(
   href = "./L_ocellata",
   "Leipoa ocellata"
 )
+
+
 ```
 
-```{r eval=FALSE, include=FALSE}
-tags$b(
+```{r echo=FALSE}
+tags$a(
   href = "./P_fumeus",
   "Pseudomys fumeus"
 )
 ```
 
-```{r echo=FALSE}
+```{r eval=FALSE, include=FALSE}
 tags$a(
   href = "https://barkerj-dpe.github.io/SDMmarkdown/L_ocellata.html",
   "Leipoa ocellata"
@@ -30,7 +32,7 @@ tags$a(
 
 
 
-```{r echo=FALSE}
+```{r eval=FALSE, include=FALSE}
 tags$b(
   href = "https://barkerj-dpe.github.io/SDMmarkdown/P_fumeus.html",
   "Pseudomys fumeus"
