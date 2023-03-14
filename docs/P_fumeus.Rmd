@@ -95,7 +95,7 @@ P_fumeus <- leaflet(options = leafletOptions(minZoom = 5)) %>%                  
                            title   = "Locate Me",
                            onClick = JS("function(btn, map){ map.locate({setView: true}); }"))) %>% 
   
-  addLayersControl(overlayGroups = c("Leipoa ocellata",                         # To turn layers on and off.
+  addLayersControl(overlayGroups = c("Pseudomys fumeus",                        # To turn layers on and off.
                                      "TSF",
                                      "Fire Freq"),
                    position      = "bottomright") #%>% 
