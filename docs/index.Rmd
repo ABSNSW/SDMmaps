@@ -33,3 +33,12 @@ tags$a(
   "Banksia serrata"
 )
 ```
+
+</br> 
+  
+```{r echo=FALSE}
+tags$a(
+  href = "./L_esquamatus",
+  "Leucopogon esquamatus"
+)
+```
