@@ -1,0 +1,126 @@
+---
+output: html_document
+---
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+library(here)
+library(raster)
+library(leaflet)
+library(leafem)
+library(htmltools)
+library(htmlwidgets)
+```
+
+
+```{r include=FALSE}
+Banksia_serrata <- raster(here("Input/Banksia_serrata.tif"))
+```
+
+
+```{r include=FALSE}
+tsf <- raster(here("Input/FireRasts/TSF.tif"))
+
+ffreq <- raster(here("Input/FireRasts/FireFreq.tif"))
+```
+
+
+```{r include=FALSE}
+pal <- colorNumeric(palette  = "viridis",
+                    values(Banksia_serrata),
+                    na.color = "transparent")
+
+pal2 <- colorNumeric(palette  = "YlOrRd",
+                     reverse  = T,
+                     values(tsf),
+                     na.color = "transparent")
+
+pal3 <- colorNumeric(palette  = "inferno",
+                     values(ffreq),
+                     na.color = "transparent")
+```
+
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+B_serrata <- leaflet(options = leafletOptions(minZoom = 5)) %>%                  # Set extent of zoom.
+  
+  addTiles() %>%                                                                # Add basemap.
+  
+  addRasterImage(Banksia_serrata,                                              # Add SDM.
+                 colors   = pal,
+                 group    = "Banksia serrata",
+                 layerId  = "Banksia serrata", 
+                 opacity  = 0.8,
+                 maxBytes = 11 * 1024 * 1024) %>%
+  
+  addRasterImage(tsf,                                                           # Add TSF.
+                 colors   = pal2,
+                 group    = "TSF", 
+                 layerId  = "TSF", 
+                 opacity  = 0.8,
+                 maxBytes = 11 * 1024 * 1024) %>%
+  
+  addRasterImage(ffreq,                                                         # Add fire frequency.
+                 colors   = pal3,
+                 group    = "Fire Freq", 
+                 layerId  = "Fire Freq", 
+                 opacity  = 0.8,
+                 maxBytes = 11 * 1024 * 1024) %>%
+  
+  addLegend(pal    = pal,                                                       # Add legend for each layer.
+            group  = "Banksia serrata", 
+            values = values(Banksia_serrata),
+            title  = "Habitat<br/>Suitability") %>%
+  
+  addLegend(pal    = pal2, 
+            group  = "TSF", 
+            values = values(tsf),
+            title  = "TSF (yrs)") %>%
+  
+  addLegend(pal    = pal3, 
+            group  = "Fire Freq", 
+            values = values(ffreq),
+            title  = "No. Fires<br/>(50 yrs)") %>%
+  
+  addMeasure(position          = "bottomleft",                                  # Add measuring tool.
+             primaryLengthUnit = "meters",
+             primaryAreaUnit   = "sqmeters",
+             activeColor       = "#3D535D",
+             completedColor    = "#7D4479") %>%
+  
+  addEasyButton(easyButton(icon    = "fa-globe",                                # Add zoom to full extent button.
+                           title   = "Zoom to Level 6",
+                           onClick = JS("function(btn, map){ map.setZoom(6); }"))) %>%
+  
+  addEasyButton(easyButton(icon    = "fa-crosshairs",                           # Add zoom to your location button.
+                           title   = "Locate Me",
+                           onClick = JS("function(btn, map){ map.locate({setView: true}); }"))) %>% 
+  
+  addLayersControl(overlayGroups = c("Banksia serrata",                        # To turn layers on and off.
+                                     "TSF",
+                                     "Fire Freq"),
+                   position      = "bottomright") #%>% 
+  
+  # addImageQuery(Leipoa_ocellata,
+  #               group   = "Leipoa ocellata",
+  #               layerId = "Leipoa ocellata") %>% 
+  # 
+  # addImageQuery(tsf,
+  #               group   = "TSF",
+  #               layerId = "TSF") %>% 
+  # 
+  # addImageQuery(ffreq,
+  #               group   = "Fire Freq",
+  #               layerId = "Fire Freq") %>% 
+  # 
+  # garnishMap(addImageQuery,
+  #            x        = Leipoa_ocellata,
+  #            group    = "Leipoa ocellata",
+  #            layerId  = "Leipoa ocellata",
+  #            prefix   = " ",
+  #            position = "bottomleft")
+
+```
+
+```{r echo=FALSE}
+B_serrata
+```

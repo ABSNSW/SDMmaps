@@ -16,6 +16,8 @@ tags$a(
 
 ```
 
+</br>
+  
 ```{r echo=FALSE}
 tags$a(
   href = "./P_fumeus",
@@ -23,18 +25,11 @@ tags$a(
 )
 ```
 
-```{r eval=FALSE, include=FALSE}
+</br> 
+  
+```{r echo=FALSE}
 tags$a(
-  href = "https://barkerj-dpe.github.io/SDMmarkdown/L_ocellata.html",
-  "Leipoa ocellata"
-)
-```
-
-
-
-```{r eval=FALSE, include=FALSE}
-tags$b(
-  href = "https://barkerj-dpe.github.io/SDMmarkdown/P_fumeus.html",
-  "Pseudomys fumeus"
+  href = "./B_serrata",
+  "Banksia serrata"
 )
 ```
