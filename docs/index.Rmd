@@ -12,8 +12,6 @@ tags$a(
   href = "./L_ocellata",
   "Leipoa ocellata"
 )
-
-
 ```
 
 </br>
