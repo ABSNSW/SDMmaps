@@ -81,8 +81,8 @@ tags$a(
   
 ```{r echo=FALSE}
 tags$a(
-  href = "./E_saxtilis",
-  "Eucalyptus saxtilis"
+  href = "./E_saxatilis",
+  "Eucalyptus saxatilis"
 )
 ```
 
