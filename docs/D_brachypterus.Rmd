@@ -41,11 +41,13 @@ pal3 <- colorNumeric(palette  = "inferno",
 
 
 ```{r message=FALSE, warning=FALSE, include=FALSE}
-D_brachypterus <- leaflet(options = leafletOptions(minZoom = 5)) %>%              # Set extent of zoom.
+D_brachypterus <- leaflet(options = leafletOptions(minZoom = 5),
+                          height  = "200%",
+                          width   = "200%") %>%                                 # Set extent of zoom.
   
   addTiles() %>%                                                                # Add basemap.
   
-  addRasterImage(Dasyornis_brachypterus,                                         # Add SDM.
+  addRasterImage(Dasyornis_brachypterus,                                        # Add SDM.
                  colors   = pal,
                  group    = "Dasyornis brachypterus",
                  layerId  = "Dasyornis brachypterus", 

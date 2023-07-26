@@ -41,7 +41,9 @@ pal3 <- colorNumeric(palette  = "inferno",
 
 
 ```{r message=FALSE, warning=FALSE, include=FALSE}
-L_ocellata <- leaflet(options = leafletOptions(minZoom = 5)) %>%                # Set extent of zoom.
+L_ocellata <- leaflet(options = leafletOptions(minZoom = 5),
+                      height  = "200%",
+                      width   = "200%") %>%                                     # Set extent of zoom.
   
   addTiles() %>%                                                                # Add basemap.
   

@@ -41,11 +41,13 @@ pal3 <- colorNumeric(palette  = "inferno",
 
 
 ```{r message=FALSE, warning=FALSE, include=FALSE}
-E_saxatilis <- leaflet(options = leafletOptions(minZoom = 5)) %>%              # Set extent of zoom.
+E_saxatilis <- leaflet(options = leafletOptions(minZoom = 5),
+                       height  = "200%",
+                       width   = "200%") %>%                                    # Set extent of zoom.
   
   addTiles() %>%                                                                # Add basemap.
   
-  addRasterImage(Eucalyptus_saxatilis,                                         # Add SDM.
+  addRasterImage(Eucalyptus_saxatilis,                                          # Add SDM.
                  colors   = pal,
                  group    = "Eucalyptus saxatilis",
                  layerId  = "Eucalyptus saxatilis", 

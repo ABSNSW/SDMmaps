@@ -41,11 +41,13 @@ pal3 <- colorNumeric(palette  = "inferno",
 
 
 ```{r message=FALSE, warning=FALSE, include=FALSE}
-L_exolasius <- leaflet(options = leafletOptions(minZoom = 5)) %>%              # Set extent of zoom.
+L_exolasius <- leaflet(options = leafletOptions(minZoom = 5),
+                       height  = "200%",
+                       width   = "200%") %>%                                    # Set extent of zoom.
   
   addTiles() %>%                                                                # Add basemap.
   
-  addRasterImage(Leucopogon_exolasius,                                         # Add SDM.
+  addRasterImage(Leucopogon_exolasius,                                          # Add SDM.
                  colors   = pal,
                  group    = "Leucopogon exolasius",
                  layerId  = "Leucopogon exolasius", 

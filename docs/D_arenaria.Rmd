@@ -41,11 +41,13 @@ pal3 <- colorNumeric(palette  = "inferno",
 
 
 ```{r message=FALSE, warning=FALSE, include=FALSE}
-D_arenaria <- leaflet(options = leafletOptions(minZoom = 5)) %>%              # Set extent of zoom.
+D_arenaria <- leaflet(options = leafletOptions(minZoom = 5),
+                      height  = "200%",
+                      width   = "200%") %>%                                     # Set extent of zoom.
   
   addTiles() %>%                                                                # Add basemap.
   
-  addRasterImage(Diuris_arenaria,                                         # Add SDM.
+  addRasterImage(Diuris_arenaria,                                               # Add SDM.
                  colors   = pal,
                  group    = "Diuris arenaria",
                  layerId  = "Diuris arenaria", 

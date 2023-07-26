@@ -41,11 +41,13 @@ pal3 <- colorNumeric(palette  = "inferno",
 
 
 ```{r message=FALSE, warning=FALSE, include=FALSE}
-D_fusca <- leaflet(options = leafletOptions(minZoom = 5)) %>%              # Set extent of zoom.
+D_fusca <- leaflet(options = leafletOptions(minZoom = 5),
+                   height  = "200%",
+                   width   = "200%") %>%                                        # Set extent of zoom.
   
   addTiles() %>%                                                                # Add basemap.
   
-  addRasterImage(Dampiera_fusca,                                         # Add SDM.
+  addRasterImage(Dampiera_fusca,                                                # Add SDM.
                  colors   = pal,
                  group    = "Dampiera fusca",
                  layerId  = "Dampiera fusca", 

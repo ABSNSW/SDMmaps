@@ -41,11 +41,13 @@ pal3 <- colorNumeric(palette  = "inferno",
 
 
 ```{r message=FALSE, warning=FALSE, include=FALSE}
-C_lathami <- leaflet(options = leafletOptions(minZoom = 5)) %>%              # Set extent of zoom.
+C_lathami <- leaflet(options = leafletOptions(minZoom = 5),
+                     height  = "200%",
+                     width   = "200%") %>%                                      # Set extent of zoom.
   
   addTiles() %>%                                                                # Add basemap.
   
-  addRasterImage(Calyptorhynchus_lathami,                                         # Add SDM.
+  addRasterImage(Calyptorhynchus_lathami,                                       # Add SDM.
                  colors   = pal,
                  group    = "Calyptorhynchus lathami",
                  layerId  = "Calyptorhynchus lathami", 
